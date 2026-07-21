@@ -1,0 +1,20 @@
+from matminer.datasets import load_dataset
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = load_dataset("steel_strength")
+print(df.shape)
+print(df.columns.tolist())
+df.head()
+
+print(df.head())
+print("\nBasic statistics:")
+print(df['yield strength'].describe())
+
+plt.figure(figsize=(8, 5))
+plt.hist(df['yield strength'], bins=30, color='steelblue', edgecolor='black')
+plt.xlabel('Yield Strength (MPa)')
+plt.ylabel('Count')
+plt.title('Distribution of Steel Yield Strengths')
+plt.tight_layout()
+plt.show()
